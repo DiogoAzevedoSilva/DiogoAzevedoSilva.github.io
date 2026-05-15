@@ -1,0 +1,937 @@
+/* ============================================================
+   DIOGO SILVA — PORTFOLIO STYLESHEET
+   Palette: off-white · charcoal · muted teal accent
+   Layout:  Flexbox throughout
+   Fonts:   Cormorant Garamond (headings) + DM Sans (body)
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   GOOGLE FONTS IMPORT
+   ------------------------------------------------------------ */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+
+/* ------------------------------------------------------------
+   CSS CUSTOM PROPERTIES (variables)
+   Change colours here and they update everywhere.
+   ------------------------------------------------------------ */
+:root {
+  /* Colours */
+  --color-bg:          #f5f4f0;       /* off-white, slightly warm */
+  --color-bg-alt:      #eeecea;       /* slightly darker for alternating sections */
+  --color-surface:     #ffffff;       /* card backgrounds */
+  --color-border:      #dddbd7;       /* subtle borders */
+
+  --color-text:        #2a2a2a;       /* dark charcoal */
+  --color-text-muted:  #6b6b6b;       /* secondary text */
+  --color-text-light:  #9a9a9a;       /* tertiary / labels */
+
+  --color-accent:      #4a8b8c;       /* muted teal */
+  --color-accent-dark: #376667;       /* teal hover state */
+  --color-accent-soft: #e6f2f2;       /* teal tint for badges */
+
+  /* Typography */
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+
+  /* Spacing scale */
+  --space-xs:   0.5rem;
+  --space-sm:   1rem;
+  --space-md:   1.5rem;
+  --space-lg:   2.5rem;
+  --space-xl:   4rem;
+  --space-xxl:  6rem;
+
+  /* Layout */
+  --max-width:      900px;
+  --nav-height:     64px;
+  --radius-sm:      4px;
+  --radius-md:      8px;
+  --radius-full:    9999px;
+
+  /* Transitions */
+  --transition: 0.2s ease;
+}
+
+
+/* ------------------------------------------------------------
+   RESET & BASE
+   ------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+
+/* ------------------------------------------------------------
+   TYPOGRAPHY SCALE
+   ------------------------------------------------------------ */
+h1 { font-size: clamp(2.8rem, 6vw, 4.5rem); }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
+h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); }
+
+p {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+
+/* ------------------------------------------------------------
+   REUSABLE LAYOUT HELPERS
+   ------------------------------------------------------------ */
+
+/* Centres content and caps max-width */
+.section-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* Standard section vertical padding */
+.section {
+  padding: var(--space-xl) 0;
+}
+
+/* Alternating section background */
+.section--alt {
+  background-color: var(--color-bg-alt);
+}
+
+/* Section heading with a teal underline accent */
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: var(--color-accent);
+  margin-top: var(--space-xs);
+}
+
+
+/* ------------------------------------------------------------
+   BUTTONS
+   ------------------------------------------------------------ */
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.7rem 1.6rem;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition),
+              color var(--transition),
+              border-color var(--transition);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: #ffffff;
+  border: 1px solid var(--color-accent);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+
+/* ------------------------------------------------------------
+   HEADER & NAVIGATION
+   Flexbox row: logo left, links right.
+   Sticky so it stays visible while scrolling.
+   ------------------------------------------------------------ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  height: var(--nav-height);
+}
+
+.nav-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  transition: color var(--transition);
+}
+
+.nav-logo:hover {
+  color: var(--color-accent);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.nav-link {
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  transition: color var(--transition);
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+
+.nav-link:hover {
+  color: var(--color-text);
+}
+
+/* Active page link gets a teal underline */
+.nav-link.active {
+  color: var(--color-text);
+  border-bottom-color: var(--color-accent);
+}
+
+
+/* ------------------------------------------------------------
+   HERO SECTION
+   Full-viewport-height column, content centred.
+   ------------------------------------------------------------ */
+.hero {
+  min-height: calc(100vh - var(--nav-height));
+  padding: var(--space-xl) var(--space-md);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  max-width: 680px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.hero-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.hero-name {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.hero-tagline {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+.hero-description {
+  max-width: 560px;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin-top: var(--space-xs);
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: var(--space-sm);
+}
+
+
+/* ------------------------------------------------------------
+   ABOUT SECTION
+   Flexbox row: text left, image right.
+   Stacks on mobile.
+   ------------------------------------------------------------ */
+.about-content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-xl);
+}
+
+.about-text {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.about-text p {
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.about-image {
+  flex-shrink: 0;
+}
+
+.about-image img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  /* Subtle greyscale — gives a professional, editorial feel.
+     Remove this line if you prefer full colour. */
+  filter: grayscale(20%);
+}
+
+
+/* ------------------------------------------------------------
+   SKILLS SECTION
+   Flexbox row that wraps into a grid of cards.
+   ------------------------------------------------------------ */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.skill-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+
+  flex: 1 1 130px;   /* grows and shrinks, min 130px wide */
+  max-width: 180px;
+
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.skill-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 2px 12px rgba(74, 139, 140, 0.1);
+}
+
+.skill-card img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.skill-name {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.skill-level {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  text-align: center;
+}
+
+
+/* ------------------------------------------------------------
+   EDUCATION & CERTIFICATIONS
+   Flexbox column of cards. Each card is a row.
+   ------------------------------------------------------------ */
+.cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.cert-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+
+  transition: border-color var(--transition);
+}
+
+.cert-card:hover {
+  border-color: var(--color-accent);
+}
+
+.cert-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cert-name {
+  font-family: var(--font-body);
+  font-size: 0.975rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.cert-issuer {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.cert-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.cert-date {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  white-space: nowrap;
+}
+
+/* Status badges */
+.cert-status {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.cert-status--done {
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent-dark);
+}
+
+.cert-status--progress {
+  background-color: #fef3e2;
+  color: #a0620a;
+}
+
+
+/* ------------------------------------------------------------
+   FEATURED PROJECT CARD
+   A prominent single card with tool badges and description.
+   ------------------------------------------------------------ */
+.featured-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg) var(--space-xl);
+  border-left: 3px solid var(--color-accent);
+}
+
+.featured-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  max-width: 640px;
+}
+
+.featured-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tool-badge {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent-dark);
+}
+
+.featured-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.featured-description {
+  font-size: 0.975rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+
+/* ------------------------------------------------------------
+   FOOTER
+   Flexbox row: name · nav · tagline.
+   ------------------------------------------------------------ */
+.site-footer {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  padding: var(--space-lg) var(--space-md);
+}
+
+.footer-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.footer-name {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--color-bg);
+}
+
+.footer-nav {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.footer-link {
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-bg-alt);
+  transition: color var(--transition);
+}
+
+.footer-link:hover {
+  color: #ffffff;
+}
+
+.footer-note {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+
+/* ------------------------------------------------------------
+   RESPONSIVE — MOBILE
+   Breakpoint: 640px and below
+   ------------------------------------------------------------ */
+@media (max-width: 640px) {
+
+  /* Nav: stack logo above links, or hide links behind a toggle.
+     For now: reduce gap and font size so it fits on one line. */
+  .nav-links {
+    gap: var(--space-md);
+  }
+
+  .nav-link {
+    font-size: 0.78rem;
+  }
+
+  /* Hero: less vertical padding on small screens */
+  .hero {
+    min-height: auto;
+    padding: var(--space-xxl) var(--space-sm);
+  }
+
+  /* About: stack image below text */
+  .about-content {
+    flex-direction: column-reverse;
+    gap: var(--space-md);
+  }
+
+  .about-image img {
+    width: 140px;
+    height: 140px;
+  }
+
+  /* Skills: allow 2 columns on mobile */
+  .skill-card {
+    flex: 1 1 120px;
+  }
+
+  /* Cert cards: stack meta below info */
+  .cert-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+
+  .cert-meta {
+    align-items: flex-start;
+    flex-direction: row;
+    gap: var(--space-sm);
+  }
+
+  /* Featured card: reduce padding */
+  .featured-card {
+    padding: var(--space-md);
+  }
+
+  /* Footer: stack vertically */
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+
+  .footer-nav {
+    gap: var(--space-sm);
+  }
+}
+
+
+/* ============================================================
+   PORTFOLIO PAGE
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   PAGE HERO
+   Smaller than the index hero — title + subtitle only.
+   ------------------------------------------------------------ */
+.page-hero {
+  padding: var(--space-xl) 0 var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.page-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 300;
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.page-hero-subtitle {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  max-width: 540px;
+  line-height: 1.7;
+}
+
+
+/* ------------------------------------------------------------
+   FILTER BAR
+   Flexbox row of toggle buttons.
+   ------------------------------------------------------------ */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.filter-btn {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.45rem 1.1rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background-color: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background-color var(--transition),
+              color var(--transition),
+              border-color var(--transition);
+}
+
+.filter-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.filter-btn.active {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #ffffff;
+}
+
+
+/* ------------------------------------------------------------
+   PROJECT COUNT LABEL
+   ------------------------------------------------------------ */
+.projects-count {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-md);
+  min-height: 1.2em; /* prevents layout jump when text changes */
+}
+
+
+/* ------------------------------------------------------------
+   PROJECTS GRID
+   Flexbox row that wraps. Each card takes up ~half the width
+   on desktop, full width on mobile.
+   ------------------------------------------------------------ */
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+/* ------------------------------------------------------------
+   PROJECT CARD
+   Flexbox column: header → body (grows) → footer pinned bottom.
+   ------------------------------------------------------------ */
+.project-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+
+  /* Each card takes up roughly half the row on desktop */
+  flex: 1 1 380px;
+  max-width: calc(50% - var(--space-md) / 2);
+
+  display: flex;
+  flex-direction: column;
+
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.project-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 20px rgba(74, 139, 140, 0.1);
+}
+
+/* Placeholder cards are slightly muted */
+.project-card--placeholder {
+  opacity: 0.7;
+}
+
+.project-card--placeholder:hover {
+  opacity: 1;
+}
+
+/* Cards hidden by the filter */
+.project-card[hidden] {
+  display: none;
+}
+
+.project-card-header {
+  padding: var(--space-md) var(--space-md) 0;
+}
+
+.project-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+/* Tool badge colour variants */
+.tool-badge--sql {
+  background-color: #e8f0fe;
+  color: #2a56a8;
+}
+
+.tool-badge--powerbi {
+  background-color: #fff4e0;
+  color: #9a5a00;
+}
+
+.project-card-body {
+  padding: var(--space-sm) var(--space-md);
+  flex: 1; /* pushes footer to bottom */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.project-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.project-description {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  flex: 1;
+}
+
+/* Tech tag strip */
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  list-style: none;
+}
+
+.project-tech li {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-alt);
+  color: var(--color-text-muted);
+}
+
+.project-card-footer {
+  padding: var(--space-sm) var(--space-md) var(--space-md);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+}
+
+.coming-soon-label {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--color-text-light);
+}
+
+/* Status badge variants */
+.status-badge {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.status-badge--done {
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent-dark);
+}
+
+.status-badge--progress {
+  background-color: #fef3e2;
+  color: #a0620a;
+}
+
+
+/* ------------------------------------------------------------
+   EMPTY STATE
+   Shown when a filter returns no results.
+   ------------------------------------------------------------ */
+.empty-state {
+  padding: var(--space-xl) 0;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.empty-state-text {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+}
+
+
+/* ------------------------------------------------------------
+   PORTFOLIO RESPONSIVE — MOBILE
+   ------------------------------------------------------------ */
+@media (max-width: 640px) {
+
+  .page-hero {
+    padding: var(--space-lg) 0 var(--space-md);
+  }
+
+  /* Cards go full width on mobile */
+  .project-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}

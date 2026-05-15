@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diogo Silva | Contact</title>
+  <link rel="stylesheet" href="../styles/styles.css" />
+</head>
+
+<body>
+
+  <!-- ========================================================
+       HEADER & NAVIGATION
+       ======================================================== -->
+  <header class="site-header">
+    <nav class="nav-container">
+      <a href="../index.html" class="nav-logo">Diogo Silva</a>
+      <ul class="nav-links">
+        <li><a href="../index.html" class="nav-link">Home</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ========================================================
+         PAGE HERO
+         ======================================================== -->
+    <section class="page-hero">
+      <div class="section-container">
+        <h1 class="page-hero-title">Contact</h1>
+        <p class="page-hero-subtitle">
+          Whether you have a job opportunity, a project in mind, or just
+          want to connect — I'd love to hear from you.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         CONTACT SECTION
+         ======================================================== -->
+    <section id="contact" class="section">
+      <div class="section-container">
+        <div class="contact-layout">
+
+          <!-- ---- CONTACT FORM ---- -->
+          <div class="contact-form-wrapper">
+
+            <!-- Success message -->
+            <div class="form-feedback form-feedback--success" id="form-success" hidden>
+              <p>Thank you for your message, I'll get back to you soon.</p>
+            </div>
+
+            <!-- Error summary -->
+            <div class="form-feedback form-feedback--error" id="form-error-summary" hidden>
+              <p>Please fix the errors below before submitting.</p>
+            </div>
+
+            <form class="contact-form" id="contact-form" novalidate>
+
+              <!-- Name -->
+              <div class="form-group" id="group-name">
+                <label class="form-label" for="name">
+                  Full name <span class="form-required" aria-hidden="true">*</span>
+                </label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your full name"
+                  autocomplete="name"
+                  aria-required="true"
+                  aria-describedby="error-name"
+                />
+                <p class="form-error" id="error-name" role="alert" hidden>
+                  Please enter your name.
+                </p>
+              </div>
+
+              <!-- Email -->
+              <div class="form-group" id="group-email">
+                <label class="form-label" for="email">
+                  Email address <span class="form-required" aria-hidden="true">*</span>
+                </label>
+                <input
+                  class="form-input"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="your@email.com"
+                  autocomplete="email"
+                  aria-required="true"
+                  aria-describedby="error-email"
+                />
+                <p class="form-error" id="error-email" role="alert" hidden>
+                  Please enter a valid email address.
+                </p>
+              </div>
+
+              <!-- Topic dropdown -->
+              <div class="form-group" id="group-topic">
+                <label class="form-label" for="topic">
+                  Topic <span class="form-required" aria-hidden="true">*</span>
+                </label>
+                <select
+                  class="form-input form-select"
+                  id="topic"
+                  name="topic"
+                  aria-required="true"
+                  aria-describedby="error-topic"
+                >
+                  <option value="">Select a topic…</option>
+                  <option value="job">Job opportunity</option>
+                  <option value="collaboration">Collaboration</option>
+                  <option value="feedback">Portfolio feedback</option>
+                  <option value="other">Other</option>
+                </select>
+                <p class="form-error" id="error-topic" role="alert" hidden>
+                  Please select a topic.
+                </p>
+              </div>
+
+              <!-- Subject -->
+              <div class="form-group" id="group-subject">
+                <label class="form-label" for="subject">
+                  Subject <span class="form-required" aria-hidden="true">*</span>
+                </label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="Brief subject line"
+                  aria-required="true"
+                  aria-describedby="error-subject"
+                />
+                <p class="form-error" id="error-subject" role="alert" hidden>
+                  Please enter a subject.
+                </p>
+              </div>
+
+              <!-- Message -->
+              <div class="form-group" id="group-message">
+                <label class="form-label" for="message">
+                  Message <span class="form-required" aria-hidden="true">*</span>
+                </label>
+                <textarea
+                  class="form-input form-textarea"
+                  id="message"
+                  name="message"
+                  placeholder="Your message…"
+                  rows="5"
+                  aria-required="true"
+                  aria-describedby="error-message"
+                ></textarea>
+                <p class="form-error" id="error-message" role="alert" hidden>
+                  Please enter a message.
+                </p>
+              </div>
+
+              <p class="form-note">
+                <span class="form-required" aria-hidden="true">*</span> Required fields
+              </p>
+
+              <button class="btn btn-primary form-submit" type="submit">
+                Send message
+              </button>
+
+            </form>
+          </div><!-- /contact-form-wrapper -->
+
+          <!-- ---- SIDEBAR: contact details + CV download ---- -->
+          <aside class="contact-sidebar">
+
+            <div class="sidebar-block">
+              <h2 class="sidebar-title">Get in touch</h2>
+              <ul class="contact-details">
+
+                <li class="contact-detail">
+                  <span class="contact-detail-label">Email</span>
+                  <a href="mailto:diogo6801@gmail.com" class="contact-detail-value contact-link">
+                    diogo6801@gmail.com
+                  </a>
+                </li>
+
+                <li class="contact-detail">
+                  <span class="contact-detail-label">LinkedIn</span>
+                  <a
+                    href="https://linkedin.com/in/diogo-silva-612774356"
+                    class="contact-detail-value contact-link"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    linkedin.com/in/diogo-silva-612774356
+                  </a>
+                </li>
+
+                <li class="contact-detail">
+                  <span class="contact-detail-label">Location</span>
+                  <span class="contact-detail-value">Aveiro, Portugal</span>
+                </li>
+
+              </ul>
+            </div>
+
+            <div class="sidebar-block">
+              <h2 class="sidebar-title">Curriculum Vitae</h2>
+              <p class="sidebar-text">
+                Download my CV for a full overview of my experience,
+                education, and technical skills.
+              </p>
+              <a
+                href="../assets/Diogo_Silva_CV.pdf"
+                class="btn btn-secondary cv-download"
+                download
+              >
+                Download CV (PDF)
+              </a>
+            </div>
+
+          </aside>
+
+        </div><!-- /contact-layout -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================
+       FOOTER 
+       ======================================================== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p class="footer-name">Diogo Silva</p>
+      <nav class="footer-nav">
+        <a href="../index.html" class="footer-link">Home</a>
+        <a href="portfolio.html" class="footer-link">Portfolio</a>
+        <a href="contact.html" class="footer-link">Contact</a>
+      </nav>
+      <p class="footer-note">Built with HTML, CSS &amp; JavaScript</p>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+
+</body>
+</html>

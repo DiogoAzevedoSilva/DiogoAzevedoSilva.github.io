@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diogo Silva | Data Analyst</title>
+  <link rel="stylesheet" href="styles/styles.css" />
+</head>
+
+<body>
+
+  <!-- ========================================================
+       HEADER & NAVIGATION
+       Flexbox row: logo on the left, nav links on the right.
+       The "active" class highlights the current page — you'll
+       change this on each HTML file.
+       ======================================================== -->
+  <header class="site-header">
+    <nav class="nav-container">
+      <a href="index.html" class="nav-logo">Diogo Silva</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="pages/portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="pages/contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ========================================================
+         HERO SECTION
+         ======================================================== -->
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Hi, I'm</p>
+        <h1 class="hero-name">Diogo Silva</h1>
+        <h2 class="hero-tagline">Data Analyst</h2>
+        <p class="hero-description">
+          Former music educator and composer turned data analyst. Twelve years of
+          teaching analytical disciplines gave me a strong foundation in pattern
+          recognition, structured thinking, and clear communication — skills I now
+          apply to transforming raw data into actionable business insights.
+        </p>
+        <div class="hero-actions">
+          <a href="pages/portfolio.html" class="btn btn-primary">View my portfolio</a>
+          <a href="pages/contact.html" class="btn btn-secondary">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         ABOUT ME SECTION
+         ======================================================== -->
+    <section id="about" class="section">
+      <div class="section-container">
+        <h2 class="section-title">About me</h2>
+
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              I spent 12 years as a musical analysis teacher and composer at Esproarte
+              in Mirandela, Portugal, where I taught students to recognise patterns,
+              decompose complex structures, and communicate their findings clearly. It
+              turns out those are exactly the skills that matter most in data analytics.
+            </p>
+            <p>
+              In 2025 I completed an intensive full-time Data Analytics bootcamp at
+              Le Wagon, where I worked end-to-end with real-world datasets — from raw
+              data extraction and cleaning through to machine learning models and
+              interactive dashboards. The bootcamp confirmed what I already suspected:
+              analytical thinking transfers directly, and I genuinely enjoy this work.
+            </p>
+            <p>
+              I'm currently building my portfolio and looking for my first data analyst
+              role. I'm particularly drawn to positions where clear communication of
+              insights matters as much as the technical work — bridging the gap between
+              data and decision-makers is where I feel most at home.
+            </p>
+          </div>
+          <div class="about-image">
+            <img
+              src="assets/Foto1.jpg"
+              alt="Photo of Diogo Silva"
+              width="280"
+              height="280"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         TOOLS & SKILLS SECTION
+         ======================================================== -->
+    <section id="skills" class="section section--alt">
+      <div class="section-container">
+        <h2 class="section-title">Tools & skills</h2>
+
+        <ul class="skills-list">
+
+          <li class="skill-card">
+            <img src="assets/icons/sql-server.png" alt="SQL icon" width="40" height="40" />
+            <span class="skill-name">SQL</span>
+            <span class="skill-level">BigQuery · Data modelling</span>
+          </li>
+
+          <li class="skill-card">
+            <img src="assets/icons/python.png" alt="Python icon" width="40" height="40" />
+            <span class="skill-name">Python</span>
+            <span class="skill-level">Pandas · Scikit-Learn</span>
+          </li>
+
+          <li class="skill-card">
+            <img src="assets/icons/power BI.jpg" alt="Power BI icon" width="40" height="40" />
+            <span class="skill-name">Power BI</span>
+            <span class="skill-level">Dashboards · DAX</span>
+          </li>
+
+          <!-- <li class="skill-card">
+            <img src="assets/icons/excel.svg" alt="Excel icon" width="40" height="40" />
+            <span class="skill-name">Excel</span>
+            <span class="skill-level">Analysis · Reporting</span>
+          </li>
+
+          <li class="skill-card">
+            <img src="assets/icons/bigquery.svg" alt="Google BigQuery icon" width="40" height="40" />
+            <span class="skill-name">BigQuery</span>
+            <span class="skill-level">Cloud SQL · ETL</span>
+          </li> -->
+
+          <li class="skill-card">
+            <img src="assets/icons/github.png" alt="GitHub icon" width="40" height="40" />
+            <span class="skill-name">GitHub</span>
+            <span class="skill-level">Version control</span>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         EDUCATION & CERTIFICATIONS SECTION
+         ======================================================== -->
+    <section id="education" class="section">
+      <div class="section-container">
+        <h2 class="section-title">Education & certifications</h2>
+
+        <ul class="cert-list">
+
+          <li class="cert-card">
+            <div class="cert-info">
+              <h3 class="cert-name">Bootcamp in Data Analytics</h3>
+              <p class="cert-issuer">Le Wagon &mdash; Remote</p>
+            </div>
+            <div class="cert-meta">
+              <span class="cert-date">Apr &ndash; Jun 2025</span>
+              <span class="cert-status cert-status--done">Completed</span>
+            </div>
+          </li>
+
+          <li class="cert-card">
+            <div class="cert-info">
+              <h3 class="cert-name">Master's degree in Music Theory and Composition</h3>
+              <p class="cert-issuer">Universidade de Aveiro &mdash; Aveiro, Portugal</p>
+            </div>
+            <div class="cert-meta">
+              <span class="cert-date">2005 &ndash; 2012</span>
+              <span class="cert-status cert-status--done">Completed</span>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         FEATURED PROJECT SECTION
+         ======================================================== -->
+    <section id="featured" class="section section--alt">
+      <div class="section-container">
+        <h2 class="section-title">Featured project</h2>
+
+        <article class="featured-card">
+          <div class="featured-body">
+            <div class="featured-badges">
+              <span class="tool-badge">Python</span>
+            </div>
+
+            <ul class="project-tech">
+              <li>Pandas</li>
+              <li>Plotly</li>
+              <li>Scikit-Learn</li>
+              <li>K-Means</li>
+              <li>Random Forest</li>
+            </ul>
+            <h3 class="featured-title">E-Commerce Customer Analysis</h3>
+            <p class="featured-description">
+              This project analyzes a dataset of 5,000 customer orders from an e-commerce 
+              platform, combining transactional, demographic, and behavioral variables. 
+              The goal is to extract actionable business insights and demonstrate a 
+              full analytics workflow — from data quality validation through to strategic 
+              recommendations.
+            </p>
+            <a href="pages/portfolio.html" class="btn btn-primary">See all projects</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p class="footer-name">Diogo Silva</p>
+      <nav class="footer-nav">
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="pages/portfolio.html" class="footer-link">Portfolio</a>
+        <a href="pages/contact.html" class="footer-link">Contact</a>
+      </nav>
+      <p class="footer-note">Built with HTML, CSS &amp; JavaScript</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+
+</body>
+</html>
