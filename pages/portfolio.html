@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diogo Silva | Portfolio</title>
+  <link rel="stylesheet" href="../styles/styles.css" />
+</head>
+
+<body>
+
+  <!-- ========================================================
+       HEADER & NAVIGATION
+       ======================================================== -->
+  <header class="site-header">
+    <nav class="nav-container">
+      <a href="../index.html" class="nav-logo">Diogo Silva</a>
+      <ul class="nav-links">
+        <li><a href="../index.html" class="nav-link">Home</a></li>
+        <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ========================================================
+         PAGE HERO
+         ======================================================== -->
+    <section class="page-hero">
+      <div class="section-container">
+        <h1 class="page-hero-title">Portfolio</h1>
+        <p class="page-hero-subtitle">
+          A collection of data projects spanning exploratory analysis,
+          machine learning, SQL querying, and business dashboards.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         PROJECTS SECTION
+         ======================================================== -->
+    <section id="projects" class="section">
+      <div class="section-container">
+
+        <!-- Filter bar -->
+        <div class="filter-bar" role="group" aria-label="Filter projects by tool">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="python">Python</button>
+          <button class="filter-btn" data-filter="sql">SQL</button>
+          <button class="filter-btn" data-filter="powerbi">Power BI</button>
+        </div>
+
+        <!-- Project count feedback -->
+        <p class="projects-count" id="projects-count" aria-live="polite"></p>
+
+        <!-- Project cards grid -->
+        <div class="projects-grid" id="projects-grid">
+
+          <!-- ---- PROJECT 1: E-commerce (Python, complete) ---- -->
+          <article class="project-card" data-tool="python">
+            <div class="project-card-header">
+              <div class="project-badges">
+                <span class="tool-badge">Python</span>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <h2 class="project-title">E-Commerce Customer Analysis</h2>
+              <p class="project-description">
+                Exploratory analysis of 5,000 customer orders from an e-commerce
+                platform. Investigated demographic and behavioural drivers of revenue,
+                applied K-Means clustering to segment customers into actionable
+                personas, and built a Random Forest model to identify the strongest
+                predictors of order value.
+              </p>
+              <ul class="project-tech">
+                <li>Pandas</li>
+                <li>Plotly</li>
+                <li>Scikit-Learn</li>
+                <li>K-Means</li>
+                <li>Random Forest</li>
+              </ul>
+            </div>
+            <div class="project-card-footer">
+              <a 
+              href="https://github.com/DiogoAzevedoSilva/ecommerce-customer-analysis/blob/main/E_commerce_customer_analysis.ipynb" 
+              class="btn btn-primary" 
+              target="_blank" 
+              rel="noopener">
+                View on GitHub
+              </a>
+            </div>
+          </article>
+
+          <!-- ---- PROJECT 2: SQL (placeholder) ---- -->
+          <article class="project-card project-card--placeholder" data-tool="sql">
+            <div class="project-card-header">
+              <div class="project-badges">
+                <span class="tool-badge tool-badge--sql">SQL</span>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <h2 class="project-title">[SQL Project Title]</h2>
+              <p class="project-description">
+                <!-- Replace with project description -->
+                Analysis in progress. This project uses SQL to explore a
+                real-world dataset, focusing on data cleaning, aggregation,
+                and window functions to extract business insights.
+              </p>
+              <ul class="project-tech">
+                <li>SQL</li>
+                <li><!-- Placeholder --></li>
+              </ul>
+            </div>
+            <div class="project-card-footer">
+              <span class="coming-soon-label">Coming soon</span>
+            </div>
+          </article>
+
+          <!-- ---- PROJECT 3: Python (placeholder) ---- -->
+          <article class="project-card project-card--placeholder" data-tool="python">
+            <div class="project-card-header">
+              <div class="project-badges">
+                <span class="tool-badge">Python</span>
+                <span class="status-badge status-badge--progress">In progress</span>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <h2 class="project-title">[Python Project Title]</h2>
+              <p class="project-description">
+                <!-- Replace with  project description. -->
+                Exploratory data analysis and modelling project using Python.
+                Details to follow as the project develops.
+              </p>
+              <ul class="project-tech">
+                <li>Python</li>
+                <li>Pandas</li>
+                <li><!-- Placeholder --></li>
+              </ul>
+            </div>
+            <div class="project-card-footer">
+              <span class="coming-soon-label">Coming soon</span>
+            </div>
+          </article>
+
+          <!-- ---- PROJECT 4: Power BI dashboard 1 (placeholder) ---- -->
+          <article class="project-card project-card--placeholder" data-tool="powerbi">
+            <div class="project-card-header">
+              <div class="project-badges">
+                <span class="tool-badge tool-badge--powerbi">Power BI</span>
+                <span class="status-badge status-badge--progress">In progress</span>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <h2 class="project-title">[Power BI Dashboard Title]</h2>
+              <p class="project-description">
+                <!-- Replace with  project description -->
+                Interactive business dashboard built in Power BI. Details
+                to follow as the project develops.
+              </p>
+              <ul class="project-tech">
+                <li>Power BI</li>
+                <li>DAX</li>
+                <li><!-- Placeholder --></li>
+              </ul>
+            </div>
+            <div class="project-card-footer">
+              <span class="coming-soon-label">Coming soon</span>
+            </div>
+          </article>
+
+          <!-- ---- PROJECT 5: Power BI dashboard 2 (placeholder) ---- -->
+          <article class="project-card project-card--placeholder" data-tool="powerbi">
+            <div class="project-card-header">
+              <div class="project-badges">
+                <span class="tool-badge tool-badge--powerbi">Power BI</span>
+                <span class="status-badge status-badge--progress">In progress</span>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <h2 class="project-title">[Power BI Dashboard Title]</h2>
+              <p class="project-description">
+                <!-- Replace with project description. -->
+                Interactive business dashboard built in Power BI. Details
+                to follow as the project develops.
+              </p>
+              <ul class="project-tech">
+                <li>Power BI</li>
+                <li>DAX</li>
+                <li><!-- Placeholder --></li>
+              </ul>
+            </div>
+            <div class="project-card-footer">
+              <span class="coming-soon-label">Coming soon</span>
+            </div>
+          </article>
+
+        </div><!-- /projects-grid -->
+
+        <!-- Empty state: shown by JS when a filter returns no results -->
+        <div class="empty-state" id="empty-state" hidden>
+          <p class="empty-state-text">No projects found for this filter.</p>
+          <button class="btn btn-secondary" id="empty-state-reset">
+            Show all projects
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================
+       FOOTER 
+       ======================================================== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p class="footer-name">Diogo Silva</p>
+      <nav class="footer-nav">
+        <a href="../index.html" class="footer-link">Home</a>
+        <a href="portfolio.html" class="footer-link">Portfolio</a>
+        <a href="contact.html" class="footer-link">Contact</a>
+      </nav>
+      <p class="footer-note">Built with HTML, CSS &amp; JavaScript</p>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+
+</body>
+</html>
