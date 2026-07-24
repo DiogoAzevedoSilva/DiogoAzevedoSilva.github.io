@@ -855,10 +855,10 @@ p {
   border-radius: var(--radius-full);
 }
 
-.status-badge--done {
+/* .status-badge--done {
   background-color: var(--color-accent-soft);
   color: var(--color-accent-dark);
-}
+} */
 
 .status-badge--progress {
   background-color: #fef3e2;
